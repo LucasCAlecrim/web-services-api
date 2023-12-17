@@ -1,4 +1,4 @@
-package com.wbservices.api.websevicesApi.services;
+package com.wbservices.api.websevicesApi.controller.services;
 
 import java.util.List;
 import java.util.Optional;
@@ -12,11 +12,11 @@ import com.wbservices.api.websevicesApi.repository.OrderRepository;
 @Service
 public class OrderService {
 
-    public List<Order> findAll(){
+    public List<Order> findAll() {
         return repository.findAll();
     }
 
-    public Order findById(Long id){
+    public Order findById(Long id) {
         Optional<Order> obj = repository.findById(id);
         return obj.get();
     }
