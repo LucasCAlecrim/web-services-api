@@ -2,14 +2,12 @@ package com.wbservices.api.websevicesApi.model;
 
 import java.io.Serializable;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.wbservices.api.websevicesApi.model.pk.OrderItemPK;
 
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
-import lombok.Data;
 
-@Data
 @Entity
 @Table(name = "tb_order_item")
 public class OrderItem implements Serializable {
@@ -32,6 +30,46 @@ public class OrderItem implements Serializable {
         this.preco = preco;
     }
 
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
+
+    public OrderItemPK getId() {
+        return id;
+    }
+
+    public void setId(OrderItemPK id) {
+        this.id = id;
+    }
+
+    public Integer getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(Integer quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public Double getPreco() {
+        return preco;
+    }
+
+    public void setPreco(Double preco) {
+        this.preco = preco;
+    }
+
+    public Double getSubTotal() {
+        return preco * quantidade;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((id == null) ? 0 : id.hashCode());
+        return result;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
@@ -47,10 +85,6 @@ public class OrderItem implements Serializable {
         } else if (!id.equals(other.id))
             return false;
         return true;
-    }
-
-    public Order getOrder() {
-        return null;
     }
 
 }
