@@ -3,7 +3,8 @@ package com.wbservices.api.websevicesApi.model;
 import java.io.Serializable;
 import java.util.HashSet;
 
-import org.hibernate.mapping.Set;
+import java.util.Set;
+
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -22,7 +23,7 @@ import lombok.Data;
 @Entity
 @Table(name = "tb_produto")
 public class Produto implements Serializable {
-    private static long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -59,9 +60,9 @@ public class Produto implements Serializable {
     public Set<Order> getOrders() {
         Set<Order> Set = new HashSet<>();
         for (OrderItem x : items) {
-            set.add(x.getOrder());
+            Set.add(x.getOrder());
         }
-        return set;
+        return Set;
     }
 
     @Override

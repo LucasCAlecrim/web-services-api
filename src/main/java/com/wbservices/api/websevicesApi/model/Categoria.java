@@ -2,8 +2,7 @@ package com.wbservices.api.websevicesApi.model;
 
 import java.io.Serializable;
 import java.util.HashSet;
-
-import org.hibernate.mapping.Set;
+import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -17,8 +16,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "tb_categoria")
-private class Categoria implements Serializable {
+@Table(name = "tb_categoria") class Categoria implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id

@@ -3,7 +3,8 @@ package com.wbservices.api.websevicesApi.model;
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.HashSet;
-
+import java.util.Set;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

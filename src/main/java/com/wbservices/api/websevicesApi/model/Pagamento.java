@@ -1,8 +1,7 @@
 package com.wbservices.api.websevicesApi.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import java.time.Instant;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -10,38 +9,34 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.MapsId;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "tb_usuario")
-public class Usuario implements Serializable {
+@Table(name = "tb_pagamento")
+public class Pagamento implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nome;
-    private String email;
-    private String fone;
-    private String senha;
+    private Instant momento;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "cliente")
-    private List<Order> orders = new ArrayList<>();
+    @OneToOne
+    @MapsId
+    private Order order;
 
-    public Usuario() {
-
+    public Pagamento() {
     }
 
-    public Usuario(Long id, String nome, String email, String fone, String senha) {
+    public Pagamento(Long id, Instant momento, Order order) {
         this.id = id;
-        this.nome = nome;
-        this.email = email;
-        this.fone = fone;
-        this.senha = senha;
+        this.momento = momento;
+        this.order = order;
     }
 
     @Override
@@ -60,7 +55,7 @@ public class Usuario implements Serializable {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        Usuario other = (Usuario) obj;
+        Pagamento other = (Pagamento) obj;
         if (id == null) {
             if (other.id != null)
                 return false;
@@ -68,4 +63,5 @@ public class Usuario implements Serializable {
             return false;
         return true;
     }
+
 }

@@ -49,4 +49,8 @@ public class OrderItem implements Serializable {
         return true;
     }
 
+    public Order getOrder() {
+        return null;
+    }
+
 }
