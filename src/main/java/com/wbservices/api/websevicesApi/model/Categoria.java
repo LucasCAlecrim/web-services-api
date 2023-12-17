@@ -38,6 +38,9 @@ private class Categoria implements Serializable {
         this.nome = nome;
     }
     
+    public Set<Produto> getProdutos(){
+        return produtos;
+    }
     @Override
     public int hashCode(){
         final int prime = 31;
