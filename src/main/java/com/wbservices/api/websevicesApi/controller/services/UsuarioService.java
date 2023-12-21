@@ -9,8 +9,8 @@ import org.springframework.dao.EmptyResultDataAccessException;
 
 import org.springframework.stereotype.Service;
 
-import com.wbservices.api.websevicesApi.controller.exceptions.DatabaseException;
-import com.wbservices.api.websevicesApi.controller.exceptions.ResourceNotFoundException;
+import com.wbservices.api.websevicesApi.controller.services.exceptions.DatabaseException;
+import com.wbservices.api.websevicesApi.controller.services.exceptions.ResourceNotFoundException;
 import com.wbservices.api.websevicesApi.model.Usuario;
 import com.wbservices.api.websevicesApi.repository.UsuarioRepository;
 

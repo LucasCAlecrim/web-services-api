@@ -1,4 +1,4 @@
-package com.wbservices.api.websevicesApi.controller.exceptions;
+package com.wbservices.api.websevicesApi.controller.services.exceptions;
 
 public class ResourceNotFoundException extends RuntimeException {
     private static final long serialVersionUID = 1L;

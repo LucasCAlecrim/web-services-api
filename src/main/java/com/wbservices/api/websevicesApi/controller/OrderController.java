@@ -1,5 +1,6 @@
 package com.wbservices.api.websevicesApi.controller;
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,25 +10,25 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.wbservices.api.websevicesApi.controller.services.ProdutoService;
-import com.wbservices.api.websevicesApi.model.Produto;
+import com.wbservices.api.websevicesApi.controller.services.OrderService;
+import com.wbservices.api.websevicesApi.model.Order;
 
 @RestController
-@RequestMapping(value = "/produtos")
-public class ProdutoController {
+@RequestMapping(value = "/orders")
+public class OrderController {
 
     @GetMapping
-    public ResponseEntity<List<Produto>> findAll() {
-        List<Produto> list = service.findAll();
+    public ResponseEntity<List<Order>> findAll(){
+        List<Order>list=service.findAll();
         return ResponseEntity.ok().body(list);
     }
-
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Produto> findById(@PathVariable Long id){
-        Produto obj = service.findById(id);
+    public ResponseEntity<Order> findById(@PathVariable Long id){
+        Order obj = service.findById(id);
         return ResponseEntity.ok().body(obj);
     }
 
     @Autowired
-    private ProdutoService service;
+    private OrderService service;
+    
 }
